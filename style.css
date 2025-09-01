@@ -1,0 +1,272 @@
+/*
+ * Global Stylesheet for the Portfolio Website
+ * This file defines the visual appearance of all pages in the
+ * portfolio, including layout, typography, colors and responsive
+ * behaviour. The design uses a light blue colour palette to
+ * reflect a professional yet friendly tone, suitable for a web
+ * developer and aspiring entrepreneur.
+ */
+
+/* Root variables for easy theming */
+:root {
+    --primary-color: #e3f2fd;   /* light blue background */
+    --accent-color: #1976d2;    /* primary blue for accents */
+    --heading-color: #0d47a1;   /* darker blue for headings */
+    --text-color: #333333;      /* dark gray for body text */
+    --white: #ffffff;           /* white for cards and navigation */
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Base typography and layout */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Navigation bar */
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--white);
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .logo {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    white-space: nowrap;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--white);
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+/* Main Content */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+section h2 {
+    margin-bottom: 1.5rem;
+    color: var(--heading-color);
+    font-size: 2rem;
+    border-bottom: 3px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 0.25rem;
+}
+
+/* Projects */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px var(--shadow);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card h3 {
+    margin: 1rem;
+    color: var(--accent-color);
+    font-size: 1.25rem;
+}
+
+.project-card p {
+    margin: 0 1rem 1rem;
+    flex-grow: 1;
+}
+
+/* Blog */
+.blog-list .blog-post {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow);
+}
+
+.blog-post h3 {
+    margin-top: 0;
+    color: var(--accent-color);
+}
+
+.blog-post p {
+    margin-bottom: 0;
+}
+
+/* Contact Form */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1565c0;
+}
+
+/* Merchandise */
+.merch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.merch-item {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px var(--shadow);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.merch-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.merch-item h3 {
+    margin: 1rem;
+    color: var(--accent-color);
+    font-size: 1.25rem;
+}
+
+.merch-item p {
+    margin: 0 1rem 1rem;
+    flex-grow: 1;
+}
+
+.merch-item button {
+    margin: 0 1rem 1rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--white);
+    color: var(--text-color);
+    font-size: 0.875rem;
+    border-top: 1px solid #ddd;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    .hero-text p {
+        font-size: 1rem;
+    }
+}
