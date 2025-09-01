@@ -1,16 +1,31 @@
 ---
 import Base from "../../layouts/Base.astro";
-import { getCollection } from 'astro:content';
-import { Markdown } from 'astro/components';
+import { getCollection, getEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  // collect all non-draft posts and turn them into paths
+  const posts = await getCollection("blog", (p) => !p.data.draft);
+  return posts.map((p) => ({
+    params: { slug: p.slug },
+  }));
+}
+
 const { slug } = Astro.params;
-const post = (await getCollection('blog')).find(p => p.slug === slug);
-if (!post) throw new Error('Post not found');
+
+// you can use getEntry for direct lookup by slug
+const post = await getEntry("blog", slug);
+if (!post) {
+  throw new Error(`Post not found: ${slug}`);
+}
+
+const { Content } = await post.render();
 ---
+
 <Base title={`${post.data.title} — Blog`}>
   <article class="post">
     <h1>{post.data.title}</h1>
     <p><em>{post.data.date}</em></p>
     {post.data.cover && <img src={post.data.cover} alt="" />}
-    <Markdown content={post.body} />
+    <Content />
   </article>
 </Base>
